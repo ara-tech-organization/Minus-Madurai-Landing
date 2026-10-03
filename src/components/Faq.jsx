@@ -63,15 +63,8 @@ function FaqItem({ item, isOpen, onToggle, delay }) {
 }
 
 export default function Faq() {
-  // each question opens and closes on its own; the first one starts open
-  const [openSet, setOpenSet] = useState(() => new Set([0]))
-  const toggle = (i) =>
-    setOpenSet((prev) => {
-      const next = new Set(prev)
-      if (next.has(i)) next.delete(i)
-      else next.add(i)
-      return next
-    })
+  // accordion: opening one question closes the previous one (both animate); the first starts open
+  const [openIndex, setOpenIndex] = useState(0)
 
   return (
     <section className="section section--dark" id="faqs" aria-labelledby="faq-h">
@@ -88,8 +81,8 @@ export default function Faq() {
             <FaqItem
               key={f.q}
               item={f}
-              isOpen={openSet.has(i)}
-              onToggle={() => toggle(i)}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
               delay={i * 60}
             />
           ))}
