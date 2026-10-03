@@ -435,8 +435,24 @@
 .footer a { color: var(--on-dark-2); font-size: 0.9rem; transition: color 0.3s; }
 .footer a:hover { color: var(--amber); }
 .footer p + p { margin-top: 0.4rem; }
-.footer__map { position: relative; height: 210px; overflow: hidden; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.18); background: #e9e9e9; }
-.footer__map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.footer__map { position: relative; display: block; height: 210px; overflow: hidden; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.18); background: #e9e9e9; color: #111; }
+.footer__map img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
+.footer__map:hover img { transform: scale(1.04); }
+.map-pin {
+  position: absolute; left: 50%; top: 50%; width: 26px; height: 26px; border-radius: 50% 50% 50% 0; background: #111; border: 3px solid #fff;
+  transform: translate(-50%, -100%) rotate(-45deg); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4); animation: pinBounce 2.4s ease-in-out infinite;
+}
+.map-pin::after { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: #fff; }
+@keyframes pinBounce { 0%, 100% { transform: translate(-50%, -100%) rotate(-45deg); } 50% { transform: translate(-50%, -125%) rotate(-45deg); } }
+.map-label, .map-open {
+  position: absolute; bottom: 10px; padding: 0.35rem 0.75rem; border-radius: 50px; font-size: 0.72rem; font-weight: 600; line-height: 1.3;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.map-label { left: 10px; color: #111; background: #fff; max-width: 55%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.map-open { right: 10px; background: #111; color: #fff; transition: transform 0.3s var(--ease); }
+.footer__map:hover .map-open { transform: translateY(-2px); }
+.map-attr { position: absolute; top: 6px; right: 8px; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.6rem; background: rgba(255, 255, 255, 0.8); color: #333; }
+@media (prefers-reduced-motion: reduce) { .map-pin { animation: none; } }
 @media (min-width: 640px) { .footer__map { grid-column: 1 / -1; height: 230px; } }
 @media (min-width: 1024px) {
   .footer__grid > :nth-child(1), .footer__grid > :nth-child(2) { grid-row: span 2; }

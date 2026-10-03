@@ -1,6 +1,7 @@
 import logo from '../assets/logo.png'
+import mapImg from '../assets/map.jpg'
 import { sectionPath } from '../hooks'
-import { ALT, CONTACT, MAP_EMBED, CONTACT_URL, NAV, SOCIALS, WHY_CHOOSE } from '../data'
+import { ALT, CONTACT, MAP_LINK, CONTACT_URL, NAV, SOCIALS, WHY_CHOOSE } from '../data'
 
 const ICONS = {
   Instagram: (
@@ -87,15 +88,13 @@ export default function Closing({ goTo }) {
             <p><a href={CONTACT.phoneHref}>{CONTACT.phone}</a></p>
             <p><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
           </div>
-          <div className="footer__map">
-            <iframe
-              title="Minus Slimming Clinic Madurai on Google Maps"
-              src={MAP_EMBED}
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-          </div>
+          <a className="footer__map" href={MAP_LINK} target="_blank" rel="noopener noreferrer" aria-label="Open Minus Slimming Clinic Madurai in Google Maps">
+            <img src={mapImg} width="900" height="420" loading="lazy" alt="Map showing Minus Slimming Clinic Madurai, KK Nagar" />
+            <span className="map-pin" aria-hidden="true" />
+            <span className="map-label">Minus Slimming Clinic – Madurai</span>
+            <span className="map-open">Open in Google Maps <span aria-hidden="true">↗</span></span>
+            <small className="map-attr">© OpenStreetMap contributors</small>
+          </a>
         </div>
         <p className="footer__copy container">© {new Date().getFullYear()} Minus Slimming Clinic – Madurai. All rights reserved.</p>
       </footer>

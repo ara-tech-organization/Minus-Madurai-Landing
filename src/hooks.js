@@ -34,12 +34,15 @@ export function useScrolled(offset = 24) {
   return scrolled
 }
 
-/** Section id <-> clean path: "why" <-> "/why", "top" <-> "/" (legacy "#why" links still work). */
-export const sectionPath = (id) => (id === 'top' ? '/' : `/${id}`)
+const BASE = import.meta.env.BASE_URL // "/" locally, "/Minus-Madurai-Landing/" on GitHub Pages
+
+/** Section id <-> clean path: "why" <-> "<base>why", "top" <-> "<base>" (legacy "#why" links still work). */
+export const sectionPath = (id) => (id === 'top' ? BASE : `${BASE}${id}`)
 
 function currentSection() {
-  const fromPath = window.location.pathname.replace(/^\/+|\/+$/g, '')
-  return fromPath || window.location.hash.slice(1)
+  const path = window.location.pathname
+  const rel = path.startsWith(BASE) ? path.slice(BASE.length) : path.replace(/^\/+/, '')
+  return rel.replace(/\/+$/, '') || window.location.hash.slice(1)
 }
 
 function setPath(id) {
