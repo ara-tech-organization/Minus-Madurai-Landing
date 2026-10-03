@@ -2,11 +2,11 @@ import { FAQS } from '../data'
 
 export default function Faq() {
   return (
-    <section className="section section--cream" id="faqs" aria-labelledby="faq-h">
+    <section className="section section--dark" id="faqs" aria-labelledby="faq-h">
       <div className="container">
         <header className="head">
-          <p className="eyebrow reveal">Good to know</p>
-          <h2 className="h2 reveal" id="faq-h" style={{ '--d': '60ms' }}>
+          <p className="eyebrow eyebrow--light reveal">Good to know</p>
+          <h2 className="h2 h2--light reveal" id="faq-h" style={{ '--d': '60ms' }}>
             Frequently Asked <span className="muted">Questions (FAQs)</span>
           </h2>
         </header>
