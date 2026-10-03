@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import { CONTACT } from '../data'
+import { CONTACT, FORM_ENDPOINT } from '../data'
 
 const EMPTY = { name: '', email: '', phone: '', message: '' }
-// Set VITE_FORM_ENDPOINT (in .env) to the PHP URL to send enquiries; when empty the form only redirects.
-const ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT
 const SOURCE = 'Minus Madurai Landing' // saved in the "source" column of the sheet
 
 function validate(v) {
@@ -29,10 +27,10 @@ export default function LeadForm({ onSubmitted }) {
     setFailed(false)
     if (Object.keys(e).length) return
 
-    if (ENDPOINT) {
+    if (FORM_ENDPOINT) {
       setSending(true)
       try {
-        const res = await fetch(ENDPOINT, {
+        const res = await fetch(FORM_ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

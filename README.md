@@ -34,3 +34,12 @@ Section links use clean paths (`/why`, `/treatments`, …). On GitHub Pages the 
 `index.html` to `404.html` so those links also work when opened directly. On another host, configure a
 "serve `index.html` for unknown paths" rewrite and build with the right `VITE_BASE` (default `/`).
 
+## Deploy to Hostinger
+
+```bash
+npm run build   # builds dist/ for the domain root
+```
+
+Upload everything inside `dist/` (including the hidden `.htaccess`) to `public_html`. The `.htaccess` makes
+page links such as `/why` and `/thankyou` work on refresh. The enquiry form posts to the PHP endpoint set as
+`FORM_ENDPOINT` in `src/data.js`; the link-preview image address is in `index.html`.

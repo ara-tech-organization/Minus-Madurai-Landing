@@ -12,6 +12,10 @@ export const MAP_EMBED =
 export const MAP_LINK =
   'https://www.google.com/maps/search/?api=1&query=Minus%20Slimming%20Clinic%20KK%20Nagar%20Madurai'
 
+// Enquiry form endpoint (PHP: sends the email and writes the Google Sheet).
+// Payload: { name, email, phone, message, source }
+export const FORM_ENDPOINT = 'https://minusclinicmadurai.com/api/email.php'
+
 export const SOCIALS = [
   { name: 'Instagram', href: 'https://www.instagram.com/minusclinic.madurai/' },
   { name: 'Facebook', href: 'https://www.facebook.com/p/MINUS-Slimming-Clinic-Madurai-61594350524583/' },
