@@ -11,7 +11,7 @@ const STATS = [
   ['4', 'Surgical'],
 ]
 
-export default function Hero() {
+export default function Hero({ onSubmitted }) {
   return (
     <section className="hero" id="top">
       <div className="hero__grid-bg" aria-hidden="true" />
@@ -54,7 +54,7 @@ export default function Hero() {
           </figure>
 
           <div id="enquiry" className="hero__form reveal" style={{ '--d': '240ms' }}>
-            <LeadForm />
+            <LeadForm onSubmitted={onSubmitted} />
           </div>
         </div>
 

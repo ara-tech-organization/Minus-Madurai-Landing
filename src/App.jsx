@@ -14,6 +14,7 @@ import Faq from './components/Faq'
 import FinalCta from './components/FinalCta'
 import Footer from './components/Footer'
 import LegalPage from './components/LegalPage'
+import ThankYou from './components/ThankYou'
 
 const SECTION_IDS = NAV.map((n) => n.id)
 const HOME_TITLE = 'Best Slimming Clinic in Madurai | Minus Slimming Clinic'
@@ -22,7 +23,7 @@ const HOME_TITLE = 'Best Slimming Clinic in Madurai | Minus Slimming Clinic'
 function getRoute() {
   const p = window.location.pathname
   const rel = (p.startsWith(BASE) ? p.slice(BASE.length) : p.replace(/^\/+/, '')).replace(/\/+$/, '')
-  return LEGAL[rel] ? rel : 'home'
+  return LEGAL[rel] || rel === 'thankyou' ? rel : 'home'
 }
 
 export default function App() {
@@ -41,8 +42,19 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    document.title = isHome ? HOME_TITLE : `${LEGAL[route].title} | Minus Slimming Clinic – Madurai`
+    const title = route === 'thankyou' ? 'Thank You' : isHome ? null : LEGAL[route].title
+    document.title = title ? `${title} | Minus Slimming Clinic – Madurai` : HOME_TITLE
   }, [route, isHome])
+
+  // the thank-you page should not appear in search results
+  useEffect(() => {
+    if (route !== 'thankyou') return
+    const meta = document.createElement('meta')
+    meta.name = 'robots'
+    meta.content = 'noindex'
+    document.head.appendChild(meta)
+    return () => meta.remove()
+  }, [route])
 
   // legal pages: glide to the top once the page has changed (smooth, not a jump)
   useEffect(() => {
@@ -72,7 +84,7 @@ export default function App() {
       {isHome ? (
         <>
           <main>
-            <Hero />
+            <Hero onSubmitted={() => navigate('thankyou')} />
             <Welcome />
             <WhyMadurai />
             <Testimonials />
@@ -83,7 +95,7 @@ export default function App() {
           </main>
         </>
       ) : (
-        <LegalPage pageKey={route} goTo={go} />
+        route === 'thankyou' ? <ThankYou goTo={go} /> : <LegalPage pageKey={route} goTo={go} />
       )}
       <Footer goTo={go} navigate={navigate} />
     </>

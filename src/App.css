@@ -433,6 +433,28 @@
 .btn--outline:hover { background: #111; color: #fff; }
 @media (min-width: 640px) { .diagnosis__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; } }
 
+/* ============ Form feedback + thank-you page ============ */
+.form__error { margin: 0 0 0.9rem; padding: 0.7rem 0.9rem; font-size: 0.82rem; line-height: 1.5; color: #b42318; background: #fef3f2; border: 1px solid #fecdca; border-radius: 10px; }
+.form__error a { text-decoration: underline; font-weight: 600; }
+.btn[disabled] { opacity: 0.65; cursor: wait; transform: none; }
+.btn--ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255, 255, 255, 0.35); }
+.btn--ghost:hover { background: rgba(255, 255, 255, 0.1); border-color: #fff; }
+
+.thanks { position: relative; background: #000; min-height: 100vh; display: grid; place-items: center; padding: calc(var(--header-h) + 3rem) 0 4rem; text-align: center; isolation: isolate; overflow: hidden; }
+.thanks::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse 55% 45% at 50% 30%, rgba(255, 255, 255, 0.13), transparent 70%); }
+.thanks__inner { max-width: 640px; }
+.thanks__tick { width: 92px; height: 92px; margin: 0 auto 1.75rem; display: grid; place-items: center; border-radius: 50%; background: #fff; color: #000; animation: tickPop 0.7s var(--ease) both; box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+.thanks__check { stroke-dasharray: 48; stroke-dashoffset: 48; animation: tickDraw 0.6s var(--ease) 0.45s forwards; }
+@keyframes tickPop { from { transform: scale(0); } }
+@keyframes tickDraw { to { stroke-dashoffset: 0; } }
+.thanks__title { font-size: clamp(2.4rem, 1.4rem + 4.5vw, 4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+.thanks__text { margin: 1.1rem auto 0; max-width: 34rem; font-size: 1.02rem; line-height: 1.75; color: var(--on-dark-2); }
+.thanks__actions { display: grid; gap: 0.75rem; margin-top: 2rem; }
+.thanks__note { margin-top: 1.75rem; font-size: 0.88rem; color: var(--on-dark-3); }
+.thanks__note a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 640px) { .thanks__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .thanks__check { stroke-dashoffset: 0; } }
+
 /* ============ Legal pages ============ */
 .page-enter { animation: pageEnter 0.7s var(--ease); }
 @keyframes pageEnter { from { opacity: 0; transform: translateY(18px); } }

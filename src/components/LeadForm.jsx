@@ -1,6 +1,10 @@
 import { useState } from 'react'
+import { CONTACT } from '../data'
 
 const EMPTY = { name: '', email: '', phone: '', message: '' }
+// Set VITE_FORM_ENDPOINT (in .env) to the PHP URL to send enquiries; when empty the form only redirects.
+const ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT
+const SOURCE = 'Minus Madurai Landing' // saved in the "source" column of the sheet
 
 function validate(v) {
   const e = {}
@@ -10,34 +14,47 @@ function validate(v) {
   return e
 }
 
-export default function LeadForm() {
+export default function LeadForm({ onSubmitted }) {
   const [values, setValues] = useState(EMPTY)
   const [errors, setErrors] = useState({})
-  const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [failed, setFailed] = useState(false)
 
   const set = (k) => (ev) => setValues((s) => ({ ...s, [k]: ev.target.value }))
 
-  const submit = (ev) => {
+  const submit = async (ev) => {
     ev.preventDefault()
     const e = validate(values)
     setErrors(e)
+    setFailed(false)
     if (Object.keys(e).length) return
-    // TODO: wire to the clinic's enquiry endpoint / CRM.
-    setSent(true)
-    setValues(EMPTY)
-  }
 
-  if (sent) {
-    return (
-      <div className="form form--done" role="status">
-        <div className="form__tick" aria-hidden="true">✓</div>
-        <p className="form__title">Thank you!</p>
-        <p className="form__lead">Our Madurai team will reach out shortly to schedule your consultation.</p>
-        <button type="button" className="btn btn--dark" onClick={() => setSent(false)}>
-          Send another enquiry
-        </button>
-      </div>
-    )
+    if (ENDPOINT) {
+      setSending(true)
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: values.name.trim(),
+            email: values.email.trim(),
+            phone: values.phone.trim(),
+            message: values.message.trim(),
+            source: SOURCE,
+          }),
+        })
+        const out = await res.json()
+        if (!out.success) throw new Error(out.message)
+      } catch {
+        setSending(false)
+        setFailed(true)
+        return
+      }
+      setSending(false)
+    }
+
+    setValues(EMPTY)
+    onSubmitted()
   }
 
   const field = (id, label, type, extra = {}) => (
@@ -73,7 +90,14 @@ export default function LeadForm() {
           placeholder="What would you like help with?"
         />
       </div>
-      <button type="submit" className="btn btn--dark btn--block">Request a Call Back</button>
+      {failed && (
+        <p className="form__error" role="alert">
+          Sorry, we could not send your enquiry. Please try again or call <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>.
+        </p>
+      )}
+      <button type="submit" className="btn btn--dark btn--block" disabled={sending}>
+        {sending ? 'Sending…' : 'Request a Call Back'}
+      </button>
     </form>
   )
 }
