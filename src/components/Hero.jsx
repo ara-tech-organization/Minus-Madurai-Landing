@@ -13,7 +13,7 @@ export default function Hero({ onSubmitted }) {
   return (
     <section className="hero" id="top">
       <div className="hero__grid-bg" aria-hidden="true" />
-      <div className="container">
+      <div className="container hero__grid">
         <header className="hero__head">
           <p className="eyebrow eyebrow--light reveal">Slimming &amp; Body Contouring · KK Nagar, Madurai</p>
           <h1 className="hero__title reveal" style={{ '--d': '80ms' }}>
