@@ -14,7 +14,8 @@ export const SOCIALS = [
   { name: 'Facebook', href: 'https://www.facebook.com/p/MINUS-Slimming-Clinic-Madurai-61594350524583/' },
 ]
 
-export const CONTACT_URL = `${import.meta.env.BASE_URL}contact`
+// "Book a Consultation" buttons scroll to the enquiry form in the hero (see useBookingLinks).
+export const BOOK_URL = import.meta.env.BASE_URL
 
 export const NAV = [
   { label: 'Home', id: 'top' },

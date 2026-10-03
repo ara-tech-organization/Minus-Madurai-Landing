@@ -1,5 +1,5 @@
 import './App.css'
-import { useReveal, useScrollSpy } from './hooks'
+import { useBookingLinks, useReveal, useScrollSpy } from './hooks'
 import { NAV } from './data'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -14,6 +14,7 @@ const SECTION_IDS = NAV.map((n) => n.id)
 
 export default function App() {
   useReveal()
+  useBookingLinks()
   const { active, goTo } = useScrollSpy(SECTION_IDS)
   return (
     <>

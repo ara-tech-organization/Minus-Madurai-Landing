@@ -1,4 +1,4 @@
-import { CONTACT_URL, CONCERNS, WHY_MADURAI } from '../data'
+import { BOOK_URL, CONCERNS, WHY_MADURAI } from '../data'
 
 export default function WhyMadurai() {
   const row1 = CONCERNS.slice(0, 4)
@@ -28,7 +28,7 @@ export default function WhyMadurai() {
             <p className="why__count reveal" style={{ '--d': '120ms' }}>
               <strong>{String(WHY_MADURAI.length).padStart(2, '0')}</strong> reasons
             </p>
-            <a href={CONTACT_URL} className="btn btn--amber reveal" style={{ '--d': '180ms' }}>
+            <a href={BOOK_URL} data-book className="btn btn--amber reveal" style={{ '--d': '180ms' }}>
               Book a Consultation <span aria-hidden="true">→</span>
             </a>
           </div>

@@ -53,7 +53,7 @@ export default function Hero() {
             </ul>
           </figure>
 
-          <div className="hero__form reveal" style={{ '--d': '240ms' }}>
+          <div id="enquiry" className="hero__form reveal" style={{ '--d': '240ms' }}>
             <LeadForm />
           </div>
         </div>

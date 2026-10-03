@@ -98,3 +98,29 @@ export function useScrollSpy(ids) {
 
   return { active, goTo }
 }
+
+/**
+ * Every [data-book] link ("Book a Consultation") scrolls to the enquiry form in the hero,
+ * highlights it and puts the cursor in the Name field.
+ */
+export function useBookingLinks() {
+  useEffect(() => {
+    const onClick = (e) => {
+      const link = e.target.closest('a[data-book]')
+      if (!link) return
+      const form = document.getElementById('enquiry')
+      if (!form) return
+      e.preventDefault()
+      const wide = window.matchMedia('(min-width: 1024px)').matches
+      form.scrollIntoView({ behavior: 'smooth', block: wide ? 'center' : 'start' })
+      form.classList.remove('is-called')
+      void form.offsetWidth // restart the highlight animation on repeat clicks
+      form.classList.add('is-called')
+      window.setTimeout(() => {
+        form.querySelector('input')?.focus({ preventScroll: true })
+      }, 700)
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
+}

@@ -1,7 +1,7 @@
 import logo from '../assets/logo.png'
 import mapImg from '../assets/map.jpg'
 import { sectionPath } from '../hooks'
-import { ALT, CONTACT, MAP_LINK, CONTACT_URL, NAV, SOCIALS, WHY_CHOOSE } from '../data'
+import { ALT, CONTACT, MAP_LINK, BOOK_URL, NAV, SOCIALS, WHY_CHOOSE } from '../data'
 
 const ICONS = {
   Instagram: (
@@ -38,7 +38,7 @@ export default function Closing({ goTo }) {
                 </li>
               ))}
             </ul>
-            <a href={CONTACT_URL} className="btn btn--dark btn--pulse btn--block-sm reveal" style={{ '--d': '300ms' }}>
+            <a href={BOOK_URL} data-book className="btn btn--dark btn--pulse btn--block-sm reveal" style={{ '--d': '300ms' }}>
               Book Your Consultation at Minus Madurai <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -76,7 +76,7 @@ export default function Closing({ goTo }) {
                   </a>
                 </li>
               ))}
-              <li><a href={CONTACT_URL}>Book a Consultation</a></li>
+              <li><a href={BOOK_URL} data-book>Book a Consultation</a></li>
             </ul>
           </nav>
           <address className="footer__addr">

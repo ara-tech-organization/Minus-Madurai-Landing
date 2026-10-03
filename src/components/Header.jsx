@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import logo from '../assets/logo.png'
-import { CONTACT_URL, NAV } from '../data'
+import { BOOK_URL, NAV } from '../data'
 import { sectionPath, useScrolled } from '../hooks'
 
 export default function Header({ active, goTo }) {
@@ -35,12 +35,12 @@ export default function Header({ active, goTo }) {
               </li>
             ))}
           </ul>
-          <a href={CONTACT_URL} className="btn btn--amber nav__cta" onClick={() => setOpen(false)}>
+          <a href={BOOK_URL} data-book className="btn btn--amber nav__cta" onClick={() => setOpen(false)}>
             Book a Consultation
           </a>
         </nav>
 
-        <a href={CONTACT_URL} className="btn btn--amber btn--sm header__cta">
+        <a href={BOOK_URL} data-book className="btn btn--amber btn--sm header__cta">
           Book a Consultation
         </a>
 
