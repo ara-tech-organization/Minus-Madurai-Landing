@@ -44,11 +44,15 @@ export default function App() {
     document.title = isHome ? HOME_TITLE : `${LEGAL[route].title} | Minus Slimming Clinic – Madurai`
   }, [route, isHome])
 
+  // legal pages: glide to the top once the page has changed (smooth, not a jump)
+  useEffect(() => {
+    if (!isHome) window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [route, isHome])
+
   // open a legal page (or go home) without a full reload
   const navigate = useCallback((key) => {
     window.history.pushState(null, '', key === 'home' ? BASE : sectionPath(key))
     setRoute(key)
-    window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
 
   // header / footer links: scroll on the home page, or return home at that section from a legal page

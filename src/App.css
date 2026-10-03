@@ -410,18 +410,18 @@
 .faq { max-width: 820px; margin: 0 auto; display: grid; gap: 0.75rem; }
 .faq__item { background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-dark); border-radius: 14px; transition: border-color 0.3s, background 0.3s, box-shadow 0.4s var(--ease); overflow: hidden; }
 .faq__item:hover { border-color: rgba(255, 255, 255, 0.25); }
-.faq__item[open] { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5); }
+.faq__item[data-open='true'] { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5); }
 .faq__item summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.25rem; cursor: pointer; list-style: none; min-height: 56px; }
 .faq__item summary::-webkit-details-marker { display: none; }
 .faq__q { font-size: 0.98rem; font-weight: 600; line-height: 1.4; color: #fff; }
 .faq__icon { position: relative; flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.4); transition: background 0.3s, transform 0.4s var(--ease); }
 .faq__icon::before, .faq__icon::after { content: ''; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; background: #fff; transform: translate(-50%, -50%); transition: transform 0.4s var(--ease), background 0.3s; }
 .faq__icon::after { transform: translate(-50%, -50%) rotate(90deg); }
-.faq__item[open] .faq__icon { background: #fff; }
-.faq__item[open] .faq__icon::before, .faq__item[open] .faq__icon::after { background: #000; }
-.faq__item[open] .faq__icon::after { transform: translate(-50%, -50%) rotate(0deg); }
-.faq__a { padding: 0 1.25rem 1.25rem; font-size: 0.92rem; line-height: 1.8; color: var(--on-dark-2); animation: faqIn 0.45s var(--ease); }
-@keyframes faqIn { from { opacity: 0; transform: translateY(-6px); } }
+.faq__item[data-open='true'] .faq__icon { background: #fff; }
+.faq__item[data-open='true'] .faq__icon::before, .faq__item[data-open='true'] .faq__icon::after { background: #000; }
+.faq__item[data-open='true'] .faq__icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+.faq__a { padding: 0 1.25rem 1.25rem; font-size: 0.92rem; line-height: 1.8; color: var(--on-dark-2); }
+.faq__panel { overflow: hidden; }
 @media (min-width: 768px) { .faq__q { font-size: 1.05rem; } .faq__item summary { padding: 1.25rem 1.5rem; } .faq__a { padding: 0 1.5rem 1.5rem; font-size: 0.98rem; } }
 
 /* ============ Right diagnosis CTA (white) ============ */
@@ -439,6 +439,11 @@
 @media (min-width: 640px) { .diagnosis__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; } }
 
 /* ============ Legal pages ============ */
+.page-enter { animation: pageEnter 0.7s var(--ease); }
+@keyframes pageEnter { from { opacity: 0; transform: translateY(18px); } }
+.legal__section h2 { position: relative; }
+.legal__section h2::after { content: ''; display: block; width: 0; height: 2px; margin-top: 0.5rem; background: #111; transition: width 0.8s var(--ease) 0.2s; }
+.legal__section.is-in h2::after { width: 36px; }
 .legal__hero { background: #000; padding: calc(var(--header-h) + 2.5rem) 0 2.5rem; border-bottom: 1px solid var(--line-dark); }
 .legal__back { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; padding: 0.35rem 0; font-size: 0.85rem; color: var(--on-dark-2); transition: color 0.3s, transform 0.3s var(--ease); }
 .legal__back:hover { color: #fff; transform: translateX(-3px); }
@@ -470,29 +475,14 @@
 .footer a { color: var(--on-dark-2); font-size: 0.9rem; transition: color 0.3s; }
 .footer a:hover { color: var(--amber); }
 .footer p + p { margin-top: 0.4rem; }
-.footer__map { position: relative; display: block; height: 210px; overflow: hidden; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.18); background: #e9e9e9; color: #111; }
-.footer__map img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
-.footer__map:hover img { transform: scale(1.04); }
-.map-pin {
-  position: absolute; left: 50%; top: 50%; width: 26px; height: 26px; border-radius: 50% 50% 50% 0; background: #111; border: 3px solid #fff;
-  transform: translate(-50%, -100%) rotate(-45deg); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4); animation: pinBounce 2.4s ease-in-out infinite;
-}
-.map-pin::after { content: ''; position: absolute; inset: 5px; border-radius: 50%; background: #fff; }
-@keyframes pinBounce { 0%, 100% { transform: translate(-50%, -100%) rotate(-45deg); } 50% { transform: translate(-50%, -125%) rotate(-45deg); } }
-.map-label, .map-open {
-  position: absolute; bottom: 10px; padding: 0.35rem 0.75rem; border-radius: 50px; font-size: 0.72rem; font-weight: 600; line-height: 1.3;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-}
-.map-label { left: 10px; color: #111; background: #fff; max-width: 55%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.map-open { right: 10px; background: #111; color: #fff; transition: transform 0.3s var(--ease); }
-.footer__map:hover .map-open { transform: translateY(-2px); }
-.map-attr { position: absolute; top: 6px; right: 8px; padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.6rem; background: rgba(255, 255, 255, 0.8); color: #333; }
-@media (max-width: 479px) { .map-label { display: none; } }
-@media (prefers-reduced-motion: reduce) { .map-pin { animation: none; } }
-@media (min-width: 640px) { .footer__map { grid-column: 1 / -1; height: 230px; } }
+.footer__map { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer__map iframe { display: block; width: 100%; height: 220px; border: 0; border-radius: 14px; background: #e9e9e9; }
+.footer__maplink { align-self: flex-end; padding: 0.25rem 0; font-size: 0.82rem; }
+@media (min-width: 640px) { .footer__map { grid-column: 1 / -1; } .footer__map iframe { height: 260px; } }
 @media (min-width: 1024px) {
   .footer__grid > :nth-child(1), .footer__grid > :nth-child(2) { grid-row: span 2; }
-  .footer__map { grid-column: 3 / -1; height: 200px; align-self: start; }
+  .footer__map { grid-column: 3 / -1; align-self: start; }
+  .footer__map iframe { height: 230px; }
 }
 .footer__bottom { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line-dark); display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; font-size: 0.78rem; color: var(--on-dark-3); }
 .footer__legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.5rem; }

@@ -34,4 +34,3 @@ Section links use clean paths (`/why`, `/treatments`, …). On GitHub Pages the 
 `index.html` to `404.html` so those links also work when opened directly. On another host, configure a
 "serve `index.html` for unknown paths" rewrite and build with the right `VITE_BASE` (default `/`).
 
-Map image © OpenStreetMap contributors.

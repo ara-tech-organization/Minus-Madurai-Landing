@@ -6,6 +6,9 @@ export const CONTACT = {
     'Ground Floor, Flat No, P415, 9th Main Rd, below ICICI Prudential Life Insurance, Zone 2 East, KK Nagar, Madurai, Tamil Nadu 625020',
 }
 
+export const MAP_EMBED =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.9480893416044!2d78.14138787953445!3d9.933084664820163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5a7b1ee8203%3A0x61becb931d7a6790!2sMinus%20Slimming%20Clinic%20-%20Madurai!5e1!3m2!1sen!2sin!4v1791010897596!5m2!1sen!2sin'
+
 export const MAP_LINK =
   'https://www.google.com/maps/search/?api=1&query=Minus%20Slimming%20Clinic%20KK%20Nagar%20Madurai'
 

@@ -1,7 +1,6 @@
 import logo from '../assets/logo.png'
-import mapImg from '../assets/map.jpg'
 import { sectionPath } from '../hooks'
-import { CONTACT, MAP_LINK, BOOK_URL, NAV, SOCIALS } from '../data'
+import { CONTACT, MAP_EMBED, MAP_LINK, BOOK_URL, NAV, SOCIALS } from '../data'
 import { LEGAL_LINKS } from '../legal'
 
 const ICONS = {
@@ -64,13 +63,18 @@ export default function Footer({ goTo, navigate }) {
           <p><a href={CONTACT.phoneHref}>{CONTACT.phone}</a></p>
           <p><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
         </div>
-        <a className="footer__map" href={MAP_LINK} target="_blank" rel="noopener noreferrer" aria-label="Open Minus Slimming Clinic Madurai in Google Maps">
-          <img src={mapImg} width="900" height="420" loading="lazy" alt="Map showing Minus Slimming Clinic Madurai, KK Nagar" />
-          <span className="map-pin" aria-hidden="true" />
-          <span className="map-label">Minus Slimming Clinic – Madurai</span>
-          <span className="map-open">Open in Google Maps <span aria-hidden="true">↗</span></span>
-          <small className="map-attr">© OpenStreetMap contributors</small>
-        </a>
+        <div className="footer__map">
+          <iframe
+            title="Minus Slimming Clinic Madurai on Google Maps"
+            src={MAP_EMBED}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <a className="footer__maplink" href={MAP_LINK} target="_blank" rel="noopener noreferrer">
+            Open in Google Maps <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
 
       <div className="container footer__bottom">
