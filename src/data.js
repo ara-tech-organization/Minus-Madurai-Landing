@@ -34,7 +34,6 @@ export const ALT = {
   facility: 'Minus Slimming Clinic Madurai treatment facility and technology',
   collage: 'Non-surgical, minimally invasive and surgical treatments at Minus Madurai',
   beforeAfter: 'Body contouring before and after results at Minus Slimming Clinic Madurai',
-  consultation: 'Consultation-first care at Minus Slimming Clinic Madurai',
 }
 
 export const WELCOME = [

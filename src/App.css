@@ -224,10 +224,6 @@
 .field input:focus, .field textarea:focus { outline: 0; background: #fff; border-color: #111; box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); }
 .field--err input { border-color: #d92d20; }
 .field__err { display: block; margin-top: 0.3rem; font-size: 0.75rem; color: #d92d20; }
-.form--done { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2.5rem 1.5rem; }
-.form--done .form__lead { margin-bottom: 1.5rem; }
-.form__tick { width: 56px; height: 56px; margin: 0 auto 1rem; display: grid; place-items: center; border-radius: 50%; background: #111; color: #fff; font-size: 1.6rem; font-weight: 700; animation: pop 0.6s var(--ease); }
-@keyframes pop { from { transform: scale(0); } }
 
 /* ============ Welcome ============ */
 .split { display: grid; gap: 2rem; align-items: center; }
