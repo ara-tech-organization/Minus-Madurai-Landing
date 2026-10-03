@@ -8,11 +8,15 @@ export default function Welcome() {
         <h2 className="h2 reveal" style={{ '--d': '60ms' }}>
           Welcome to <span className="muted">Minus, Madurai</span>
         </h2>
-        {WELCOME.map((p, i) => (
-          <p key={i} className="lead reveal" style={{ '--d': `${120 + i * 80}ms` }}>
-            {p}
-          </p>
-        ))}
+        {WELCOME.map((p, i) => {
+          // keep the last four words together so the sentence never ends on a short stray line
+          const words = p.split(' ')
+          return (
+            <p key={i} className="lead reveal" style={{ '--d': `${120 + i * 80}ms` }}>
+              {words.slice(0, -4).join(' ')} <span className="nowrap">{words.slice(-4).join(' ')}</span>
+            </p>
+          )
+        })}
       </div>
     </section>
   )

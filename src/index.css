@@ -42,6 +42,8 @@
 *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
+  scrollbar-width: thin;
+  scrollbar-color: #000 #ececec; /* thin black thumb */
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-h);
   -webkit-text-size-adjust: 100%;
@@ -78,3 +80,9 @@ button { cursor: pointer; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Thin black scrollbar (Chrome, Edge, Safari) */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #ececec; }
+::-webkit-scrollbar-thumb { background: #000; border-radius: 8px; border: 1px solid #ececec; }
+::-webkit-scrollbar-thumb:hover { background: #333; }
