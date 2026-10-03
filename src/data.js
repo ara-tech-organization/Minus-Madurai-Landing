@@ -34,8 +34,6 @@ export const NAV = [
 ]
 
 export const ALT = {
-  hero: 'Best slimming clinic in Madurai — Minus Slimming Clinic body contouring',
-  facility: 'Minus Slimming Clinic Madurai treatment facility and technology',
   collage: 'Non-surgical, minimally invasive and surgical treatments at Minus Madurai',
   beforeAfter: 'Body contouring before and after results at Minus Slimming Clinic Madurai',
 }
@@ -133,11 +131,19 @@ export const TREATMENTS_NOTE =
 export const BEFORE_AFTER_INTRO =
   'Explore our before-and-after gallery to understand individual treatment journeys and outcomes.'
 
-// 6 cards = 3 columns x 2 rows. Add `before` / `after` image URLs to show real photos.
+// Optimised photos live in src/assets/results/<slug>-before.webp / <slug>-after.webp (4:5 portrait).
+const resultImages = import.meta.glob('./assets/results/*.webp', { eager: true, query: '?url', import: 'default' })
+const result = (slug, role) => resultImages[`./assets/results/${slug}-${role}.webp`]
+
+// 6 cards = 3 columns x 2 rows
 export const BEFORE_AFTER = [
-  'Belly fat reduction', 'Jawline definition', 'Double chin reduction',
-  'Arm contouring', 'Thigh contouring', 'Calf muscle reduction',
-].map((label, i) => ({ id: i, label }))
+  ['Belly fat reduction', 'belly'],
+  ['Jawline definition', 'jawline'],
+  ['Double chin reduction', 'double-chin'],
+  ['Arm contouring', 'arm'],
+  ['Thigh contouring', 'thigh'],
+  ['Calf muscle reduction', 'calf'],
+].map(([label, slug], id) => ({ id, label, before: result(slug, 'before'), after: result(slug, 'after') }))
 
 export const FAQS = [
   {

@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Original before/after photos (large) — optimised copies live in src/assets/results
+src/assets/originals/

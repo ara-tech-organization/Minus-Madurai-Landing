@@ -1,15 +1,13 @@
-import { ALT, CONTACT } from '../data'
+import { CONTACT } from '../data'
 import LeadForm from './LeadForm'
-
-// Drop a real photo at src/assets/hero.(jpg|jpeg|png|webp) and it replaces the placeholder art.
-const found = import.meta.glob('../assets/hero.{jpg,jpeg,png,webp}', { eager: true, import: 'default' })
-const heroImage = Object.values(found)[0]
 
 const STATS = [
   ['10', 'Non-invasive'],
   ['3', 'Minimally invasive'],
   ['4', 'Surgical'],
 ]
+
+const CHIPS = ['Non-surgical', 'European-grade tech', 'Consultation-first']
 
 export default function Hero({ onSubmitted }) {
   return (
@@ -22,40 +20,13 @@ export default function Hero({ onSubmitted }) {
             <span className="hero__brand">Minus Slimming Clinic, Madurai:</span>{' '}
             <span className="hero__tagline">Advanced Body Contouring and Weight Loss, Without Guesswork</span>
           </h1>
+          <ul className="hero__chips reveal" style={{ '--d': '140ms' }}>
+            {CHIPS.map((c) => <li key={c}>{c}</li>)}
+          </ul>
         </header>
 
-        <div className="hero__stage">
-          <figure className="hero__visual reveal" style={{ '--d': '160ms' }}>
-            {heroImage ? (
-              <img src={heroImage} alt={ALT.hero} className="hero__photo" fetchPriority="high" />
-            ) : (
-              <div className="art" role="img" aria-label={ALT.hero}>
-                <svg viewBox="0 0 240 320" aria-hidden="true">
-                  <g fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="120" cy="52" r="26" strokeOpacity=".9" strokeWidth="1.5" />
-                    <path strokeOpacity=".9" strokeWidth="1.5" d="M104 76c-30 6-52 20-54 52-1 24 8 40 12 62 3 18 0 38-2 70M136 76c30 6 52 20 54 52 1 24-8 40-12 62-3 18 0 38 2 70M84 190c14 10 58 10 72 0" />
-                    <path className="art__dash" strokeOpacity=".4" strokeWidth="1" strokeDasharray="3 5" d="M40 130h160M44 190h152M60 250h120" />
-                  </g>
-                  <g fill="#fff">
-                    <circle className="art__dot" cx="120" cy="130" r="4" />
-                    <circle className="art__dot art__dot--2" cx="120" cy="190" r="4" />
-                    <circle className="art__dot art__dot--3" cx="120" cy="250" r="4" />
-                  </g>
-                </svg>
-                <span className="art__scan" aria-hidden="true" />
-              </div>
-            )}
-            <span className="hero__tag">KK Nagar, Madurai</span>
-            <ul className="hero__badges">
-              <li>Non-surgical</li>
-              <li>European-grade tech</li>
-              <li>Consultation-first</li>
-            </ul>
-          </figure>
-
-          <div id="enquiry" className="hero__form reveal" style={{ '--d': '240ms' }}>
-            <LeadForm onSubmitted={onSubmitted} />
-          </div>
+        <div id="enquiry" className="hero__form reveal" style={{ '--d': '200ms' }}>
+          <LeadForm onSubmitted={onSubmitted} />
         </div>
 
         <div className="hero__bar reveal" style={{ '--d': '300ms' }}>
