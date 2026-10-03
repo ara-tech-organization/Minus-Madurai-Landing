@@ -63,19 +63,19 @@ export const TESTIMONIALS_INTRO =
 
 export const TESTIMONIALS = [
   {
-    name: 'Kanishka',
+    name: 'Ragavendra',
     text: 'I really appreciated the consultation-first approach at Minus. The team understood my concerns, explained the available options clearly, and helped me choose a treatment plan that felt right for me.',
   },
   {
-    name: 'Shivasree',
+    name: 'Yogalakshmi',
     text: 'The clinic has a professional environment, and the treatment process was explained clearly at every step. I felt comfortable throughout my visits and appreciated the personalized attention.',
   },
   {
-    name: 'Vetri Vel',
+    name: 'Charles',
     text: 'What stood out to me was the range of treatment options available. The team took time to understand my individual concerns rather than suggesting the same solution for everyone.',
   },
   {
-    name: 'Bharani',
+    name: 'Bathool',
     text: 'My experience at Minus Slimming Clinic Madurai was reassuring from the consultation onwards. The staff were approachable, the process was well explained, and I felt that my concerns were genuinely listened to.',
   },
 ]
@@ -127,18 +127,41 @@ export const TREATMENTS_NOTE =
 export const BEFORE_AFTER_INTRO =
   'Explore our before-and-after gallery to understand individual treatment journeys and outcomes.'
 
-// 12 cards = 3 columns x 4 rows. Add `before` / `after` image URLs to show real photos.
+// 6 cards = 3 columns x 2 rows. Add `before` / `after` image URLs to show real photos.
 export const BEFORE_AFTER = [
   'Belly fat reduction', 'Jawline definition', 'Double chin reduction',
   'Arm contouring', 'Thigh contouring', 'Calf muscle reduction',
-  'Skin tightening', 'Waistline sculpting', 'Back & flank fat',
-  'Post-pregnancy contour', 'Fluid retention & puffiness', 'Full body contouring',
 ].map((label, i) => ({ id: i, label }))
 
-export const WHY_CHOOSE = [
-  'Full-Spectrum Treatments',
-  'European-Grade Technology',
-  'Consultation-First Approach',
-  'Trusted Multi-City Network',
-  'Direct Local Access',
+export const FAQS = [
+  {
+    q: 'What is the best treatment for belly fat reduction in Madurai?',
+    a: 'It depends on whether your concern is fat volume, skin laxity, or both. CryoSculpt and CryoMax target fat through controlled cold exposure; Skin Fusion RF Sculpting addresses fat and skin tightening together; Abdominoplasty is the surgical option for excess skin and muscle separation. This is confirmed at consultation, not guessed from a form.',
+  },
+  {
+    q: 'Are the treatments at Minus Madurai surgical or non-surgical?',
+    a: 'Both, Minus Madurai offers the full range: non-invasive device-based treatments, minimally invasive injectables, and surgical procedures. Your consultation determines which category fits your goal.',
+  },
+  {
+    q: 'How much do treatments cost at Minus Madurai?',
+    a: "Cost depends on the treatment, treatment area, and number of sessions required. Minus doesn't quote blanket pricing without an assessment book or a consultation for an accurate quote specific to your case.",
+  },
+  {
+    q: 'Is Minus Madurai the same standard as the Chennai flagship clinic?',
+    a: 'Yes. Madurai operates on the same clinical standard, technology, and consultation-first approach as every other Minus location.',
+  },
+  {
+    q: 'Where is Minus Slimming Clinic Madurai located?',
+    a: '#P415, 9th Street, Zone 2, East, KK Nagar, Madurai – 625020, below Page 3 Saloon and ICICI Prudential. Call +91 85081 34567 or email madurai@minusclinic.com.',
+  },
+  {
+    q: 'Can I get a non-surgical weight loss treatment in Madurai?',
+    a: 'Yes, Minus offers several non-surgical options including AI Robotic Sonic Slim, CryoSculpt, CryoMax Sculpting, and Skin Fusion RF Sculpting, each suited to different fat-reduction and body-contouring goals.',
+  },
 ]
+
+export const DIAGNOSIS = {
+  title: 'The right body transformation starts with the right diagnosis!',
+  text: 'Book a consultation at Minus Slimming Clinic, Madurai, and get matched to the treatment your body and goals actually call for.',
+  whatsapp: 'https://wa.me/918508134567',
+}

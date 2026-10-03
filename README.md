@@ -16,7 +16,8 @@ npm run build    # outputs to dist/
 
 | What | Where |
 |---|---|
-| Page copy, treatments, testimonials, contact, social links | `src/data.js` |
+| Page copy, treatments, testimonials, FAQs, contact, social links | `src/data.js` |
+| Privacy Policy and Terms & Conditions text (DRAFT — replace with the client's wording) | `src/legal.js` → pages `/privacy-policy`, `/terms-and-conditions` |
 | SEO tags and JSON-LD schemas | `index.html` |
 | Sections | `src/components/*` |
 | Styles | `src/index.css` (tokens) · `src/App.css` |

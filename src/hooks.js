@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 /** Adds `.is-in` to every `.reveal` element as it enters the viewport. */
-export function useReveal() {
+export function useReveal(route) {
   useEffect(() => {
     const els = document.querySelectorAll('.reveal')
     if (!('IntersectionObserver' in window)) {
@@ -20,7 +20,7 @@ export function useReveal() {
     )
     els.forEach((el) => io.observe(el))
     return () => io.disconnect()
-  }, [])
+  }, [route])
 }
 
 export function useScrolled(offset = 24) {
@@ -34,7 +34,7 @@ export function useScrolled(offset = 24) {
   return scrolled
 }
 
-const BASE = import.meta.env.BASE_URL // "/" locally, "/Minus-Madurai-Landing/" on GitHub Pages
+export const BASE = import.meta.env.BASE_URL // "/" locally, "/Minus-Madurai-Landing/" on GitHub Pages
 
 /** Section id <-> clean path: "why" <-> "<base>why", "top" <-> "<base>" (legacy "#why" links still work). */
 export const sectionPath = (id) => (id === 'top' ? BASE : `${BASE}${id}`)
@@ -55,7 +55,7 @@ function setPath(id) {
  * - opens straight at the section when the page is loaded on a section path such as /why (copy URL → paste in new tab)
  * - goTo(id) scrolls smoothly and locks the spy until the scroll settles
  */
-export function useScrollSpy(ids) {
+export function useScrollSpy(ids, enabled = true) {
   const [active, setActive] = useState(() => {
     const h = currentSection()
     return ids.includes(h) ? h : ids[0]
@@ -72,12 +72,15 @@ export function useScrollSpy(ids) {
   }, [])
 
   useEffect(() => {
+    if (!enabled) return
     const initial = currentSection()
     const target = ids.includes(initial) ? document.getElementById(initial) : null
     if (target) {
       lockUntil.current = performance.now() + 800
       target.scrollIntoView({ behavior: 'instant', block: 'start' })
     }
+    // highlight the section we landed on (async, so the effect itself does not set state)
+    const sync = window.setTimeout(() => setActive(target ? initial : ids[0]), 0)
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -93,8 +96,11 @@ export function useScrollSpy(ids) {
       const el = document.getElementById(id)
       if (el) io.observe(el)
     })
-    return () => io.disconnect()
-  }, [ids])
+    return () => {
+      window.clearTimeout(sync)
+      io.disconnect()
+    }
+  }, [ids, enabled])
 
   return { active, goTo }
 }
