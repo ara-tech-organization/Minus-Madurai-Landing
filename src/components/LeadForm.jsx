@@ -73,7 +73,7 @@ export default function LeadForm({ onSubmitted }) {
 
   return (
     <form className="form" onSubmit={submit} noValidate>
-      <p className="form__title">Book your free consultation</p>
+      <p className="form__title">Book Your Consultation</p>
       <p className="form__lead">Tell us your concern — we diagnose first, then recommend.</p>
       {field('name', 'Name', 'text', { autoComplete: 'name', placeholder: 'Your full name' })}
       {field('email', 'Email', 'email', { autoComplete: 'email', placeholder: 'you@example.com' })}

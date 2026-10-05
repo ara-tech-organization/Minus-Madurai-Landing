@@ -6,7 +6,7 @@ export default function Welcome() {
       <div className="container welcome">
         <p className="eyebrow reveal">About the clinic</p>
         <h2 className="h2 reveal" style={{ '--d': '60ms' }}>
-          Welcome to <span className="muted">Minus, Madurai</span>
+          Welcome to <span className="muted">MINUS, Madurai</span>
         </h2>
         {WELCOME.map((p, i) => {
           // keep the last four words together so the sentence never ends on a short stray line

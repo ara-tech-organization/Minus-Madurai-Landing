@@ -18,7 +18,7 @@ export default function Hero({ onSubmitted }) {
           <header className="hero__head">
             <p className="eyebrow eyebrow--light reveal">Slimming &amp; Body Contouring · KK Nagar, Madurai</p>
             <h1 className="hero__title reveal" style={{ '--d': '80ms' }}>
-              <span className="hero__brand">Minus Slimming Clinic, Madurai:</span>{' '}
+              <span className="hero__brand">MINUS Slimming Clinic, Madurai:</span>{' '}
               <span className="hero__tagline">Advanced Body Contouring and Weight Loss, Without Guesswork</span>
             </h1>
             <ul className="hero__chips reveal" style={{ '--d': '140ms' }}>

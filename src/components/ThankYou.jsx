@@ -13,7 +13,7 @@ export default function ThankYou({ goTo }) {
         <p className="eyebrow eyebrow--light reveal">Enquiry received</p>
         <h1 className="thanks__title reveal" style={{ '--d': '80ms' }}>Thank you!</h1>
         <p className="thanks__text reveal" style={{ '--d': '140ms' }}>
-          Our Madurai team will reach out shortly to schedule your consultation at Minus Slimming Clinic, KK Nagar.
+          Our Madurai team will reach out shortly to schedule your consultation at MINUS Slimming Clinic, KK Nagar.
         </p>
         <div className="thanks__actions reveal" style={{ '--d': '220ms' }}>
           <a

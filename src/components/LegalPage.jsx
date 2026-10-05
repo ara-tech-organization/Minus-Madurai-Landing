@@ -17,7 +17,7 @@ export default function LegalPage({ pageKey, goTo }) {
           >
             <span aria-hidden="true">←</span> Back to home
           </a>
-          <p className="eyebrow eyebrow--light reveal" style={{ '--d': '60ms' }}>Minus Slimming Clinic – Madurai</p>
+          <p className="eyebrow eyebrow--light reveal" style={{ '--d': '60ms' }}>MINUS Slimming Clinic – Madurai</p>
           <h1 className="legal__title reveal" style={{ '--d': '120ms' }}>{doc.title}</h1>
           <p className="legal__updated reveal" style={{ '--d': '180ms' }}>Last updated: {doc.updated}</p>
         </div>

@@ -27,20 +27,20 @@ export const BOOK_URL = import.meta.env.BASE_URL
 export const NAV = [
   { label: 'Home', id: 'top' },
   { label: 'Welcome', id: 'welcome' },
-  { label: 'Why Minus', id: 'why' },
+  { label: 'Why MINUS', id: 'why' },
   { label: 'Testimonials', id: 'testimonials' },
   { label: 'Treatments', id: 'treatments' },
   { label: 'Results', id: 'results' },
 ]
 
 export const ALT = {
-  collage: 'Non-surgical, minimally invasive and surgical treatments at Minus Madurai',
-  beforeAfter: 'Body contouring before and after results at Minus Slimming Clinic Madurai',
+  collage: 'Non-surgical, minimally invasive and surgical treatments at MINUS Madurai',
+  beforeAfter: 'Body contouring before and after results at MINUS Slimming Clinic Madurai',
 }
 
 export const WELCOME = [
-  'Minus is a cutting-edge slimming and body contouring brand that redefines the way people achieve their desired body shape now local to Madurai, at our KK Nagar branch. Our mission is to empower individuals to feel confident in their bodies by offering the most advanced, safe, and effective slimming procedures, using equipment and technologies most of which were previously only available in Europe.',
-  "Whether you're dealing with stubborn fat that hasn't responded to diet and exercise, loose skin after major weight loss, or a body-contouring goal that needs a surgical solution, Minus Madurai is built to diagnose the actual problem first then recommend the treatment that fits it.",
+  'MINUS is a cutting-edge slimming and body contouring brand that redefines the way people achieve their desired body shape now local to Madurai, at our KK Nagar branch. Our mission is to empower individuals to feel confident in their bodies by offering the most advanced, safe, and effective slimming procedures, using equipment and technologies most of which were previously only available in Europe.',
+  "Whether you're dealing with stubborn fat that hasn't responded to diet and exercise, loose skin after major weight loss, or a body-contouring goal that needs a surgical solution, MINUS Madurai is built to diagnose the actual problem first then recommend the treatment that fits it.",
 ]
 
 export const WHY_MADURAI = [
@@ -63,12 +63,12 @@ export const CONCERNS = [
 ]
 
 export const TESTIMONIALS_INTRO =
-  'Real experiences from people who chose personalized care at Minus Slimming Clinic Madurai. Read what our patients have to say about their treatment journey and overall experience.'
+  'Real experiences from people who chose personalized care at MINUS Slimming Clinic Madurai. Read what our patients have to say about their treatment journey and overall experience.'
 
 export const TESTIMONIALS = [
   {
     name: 'Ragavendra',
-    text: 'I really appreciated the consultation-first approach at Minus. The team understood my concerns, explained the available options clearly, and helped me choose a treatment plan that felt right for me.',
+    text: 'I really appreciated the consultation-first approach at MINUS. The team understood my concerns, explained the available options clearly, and helped me choose a treatment plan that felt right for me.',
   },
   {
     name: 'Yogalakshmi',
@@ -80,7 +80,7 @@ export const TESTIMONIALS = [
   },
   {
     name: 'Bathool',
-    text: 'My experience at Minus Slimming Clinic Madurai was reassuring from the consultation onwards. The staff were approachable, the process was well explained, and I felt that my concerns were genuinely listened to.',
+    text: 'My experience at MINUS Slimming Clinic Madurai was reassuring from the consultation onwards. The staff were approachable, the process was well explained, and I felt that my concerns were genuinely listened to.',
   },
 ]
 
@@ -151,29 +151,29 @@ export const FAQS = [
     a: 'It depends on whether your concern is fat volume, skin laxity, or both. CryoSculpt and CryoMax target fat through controlled cold exposure; Skin Fusion RF Sculpting addresses fat and skin tightening together; Abdominoplasty is the surgical option for excess skin and muscle separation. This is confirmed at consultation, not guessed from a form.',
   },
   {
-    q: 'Are the treatments at Minus Madurai surgical or non-surgical?',
-    a: 'Both, Minus Madurai offers the full range: non-invasive device-based treatments, minimally invasive injectables, and surgical procedures. Your consultation determines which category fits your goal.',
+    q: 'Are the treatments at MINUS Madurai surgical or non-surgical?',
+    a: 'Both, MINUS Madurai offers the full range: non-invasive device-based treatments, minimally invasive injectables, and surgical procedures. Your consultation determines which category fits your goal.',
   },
   {
-    q: 'How much do treatments cost at Minus Madurai?',
-    a: "Cost depends on the treatment, treatment area, and number of sessions required. Minus doesn't quote blanket pricing without an assessment book or a consultation for an accurate quote specific to your case.",
+    q: 'How much do treatments cost at MINUS Madurai?',
+    a: "Cost depends on the treatment, treatment area, and number of sessions required. MINUS doesn't quote blanket pricing without an assessment book or a consultation for an accurate quote specific to your case.",
   },
   {
-    q: 'Is Minus Madurai the same standard as the Chennai flagship clinic?',
-    a: 'Yes. Madurai operates on the same clinical standard, technology, and consultation-first approach as every other Minus location.',
+    q: 'Is MINUS Madurai the same standard as the Chennai flagship clinic?',
+    a: 'Yes. Madurai operates on the same clinical standard, technology, and consultation-first approach as every other MINUS location.',
   },
   {
-    q: 'Where is Minus Slimming Clinic Madurai located?',
+    q: 'Where is MINUS Slimming Clinic Madurai located?',
     a: '#P415, 9th Street, Zone 2, East, KK Nagar, Madurai – 625020, below Page 3 Saloon and ICICI Prudential. Call +91 85081 34567 or email madurai@minusclinic.com.',
   },
   {
     q: 'Can I get a non-surgical weight loss treatment in Madurai?',
-    a: 'Yes, Minus offers several non-surgical options including AI Robotic Sonic Slim, CryoSculpt, CryoMax Sculpting, and Skin Fusion RF Sculpting, each suited to different fat-reduction and body-contouring goals.',
+    a: 'Yes, MINUS offers several non-surgical options including AI Robotic Sonic Slim, CryoSculpt, CryoMax Sculpting, and Skin Fusion RF Sculpting, each suited to different fat-reduction and body-contouring goals.',
   },
 ]
 
 export const DIAGNOSIS = {
   title: 'The right body transformation starts with the right diagnosis!',
-  text: 'Book a consultation at Minus Slimming Clinic, Madurai, and get matched to the treatment your body and goals actually call for.',
+  text: 'Book a consultation at MINUS Slimming Clinic, Madurai, and get matched to the treatment your body and goals actually call for.',
   whatsapp: 'https://wa.me/918508134567',
 }

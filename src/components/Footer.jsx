@@ -23,12 +23,12 @@ export default function Footer({ goTo, navigate }) {
     <footer className="footer">
       <div className="container footer__grid">
         <div>
-          <img className="footer__logo" src={logo} width="540" height="351" loading="lazy" alt="Minus — Slim down & Shape up, Madurai" />
+          <img className="footer__logo" src={logo} width="540" height="351" loading="lazy" alt="MINUS — Slim down & Shape up, Madurai" />
           <p className="footer__text">Advanced body contouring and weight loss, consultation-first — at our KK Nagar branch, Madurai.</p>
-          <ul className="socials" aria-label="Follow Minus Madurai">
+          <ul className="socials" aria-label="Follow MINUS Madurai">
             {SOCIALS.map((so) => (
               <li key={so.name}>
-                <a href={so.href} className="socials__link" target="_blank" rel="noopener noreferrer" aria-label={`Minus Madurai on ${so.name}`}>
+                <a href={so.href} className="socials__link" target="_blank" rel="noopener noreferrer" aria-label={`MINUS Madurai on ${so.name}`}>
                   {ICONS[so.name]}
                 </a>
               </li>
@@ -65,7 +65,7 @@ export default function Footer({ goTo, navigate }) {
         </div>
         <div className="footer__map">
           <iframe
-            title="Minus Slimming Clinic Madurai on Google Maps"
+            title="MINUS Slimming Clinic Madurai on Google Maps"
             src={MAP_EMBED}
             loading="lazy"
             allowFullScreen
@@ -78,7 +78,7 @@ export default function Footer({ goTo, navigate }) {
       </div>
 
       <div className="container footer__bottom">
-        <p className="footer__copy">© {new Date().getFullYear()} Minus Slimming Clinic – Madurai. All rights reserved.</p>
+        <p className="footer__copy">© {new Date().getFullYear()} MINUS Slimming Clinic – Madurai. All rights reserved.</p>
         <ul className="footer__legal" aria-label="Legal">
           {LEGAL_LINKS.map((l) => (
             <li key={l.key}>

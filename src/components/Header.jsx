@@ -16,8 +16,8 @@ export default function Header({ active, goTo }) {
   return (
     <header className={`header${scrolled ? ' header--solid' : ''}${open ? ' header--open' : ''}`}>
       <div className="container header__bar">
-        <a href={sectionPath('top')} className="brand" aria-label="Minus Slimming Clinic Madurai — home" onClick={go('top')}>
-          <img className="brand__logo" src={logo} width="540" height="351" alt="Minus — Slim down & Shape up, Madurai" />
+        <a href={sectionPath('top')} className="brand" aria-label="MINUS Slimming Clinic Madurai — home" onClick={go('top')}>
+          <img className="brand__logo" src={logo} width="540" height="351" alt="MINUS — Slim down & Shape up, Madurai" />
         </a>
 
         <nav className="nav" id="primary-nav" aria-label="Primary">

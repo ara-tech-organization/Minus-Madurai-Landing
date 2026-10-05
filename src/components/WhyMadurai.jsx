@@ -23,7 +23,7 @@ export default function WhyMadurai() {
           <div className="why__intro">
             <p className="eyebrow eyebrow--light reveal">Our difference</p>
             <h2 className="h2 h2--light reveal" style={{ '--d': '60ms' }}>
-              Why Madurai People <span className="muted">Choose Minus?</span>
+              Why Madurai People <span className="muted">Choose MINUS?</span>
             </h2>
             <p className="why__count reveal" style={{ '--d': '120ms' }}>
               <strong>{String(WHY_MADURAI.length).padStart(2, '0')}</strong> reasons

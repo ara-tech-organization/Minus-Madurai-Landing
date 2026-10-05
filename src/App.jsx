@@ -17,7 +17,7 @@ import LegalPage from './components/LegalPage'
 import ThankYou from './components/ThankYou'
 
 const SECTION_IDS = NAV.map((n) => n.id)
-const HOME_TITLE = 'Best Slimming Clinic in Madurai | Minus Slimming Clinic'
+const HOME_TITLE = 'Best Slimming Clinic in Madurai | MINUS Slimming Clinic'
 
 /** "home" or a legal page key, read from the address bar (…/privacy-policy). */
 function getRoute() {
@@ -43,7 +43,7 @@ export default function App() {
 
   useEffect(() => {
     const title = route === 'thankyou' ? 'Thank You' : isHome ? null : LEGAL[route].title
-    document.title = title ? `${title} | Minus Slimming Clinic – Madurai` : HOME_TITLE
+    document.title = title ? `${title} | MINUS Slimming Clinic – Madurai` : HOME_TITLE
   }, [route, isHome])
 
   // the thank-you page should not appear in search results
